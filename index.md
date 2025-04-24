@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "江江的vitepress"
+  name: "vitepress"
   text: "部署网站"
   tagline: My great project tagline
   actions:
