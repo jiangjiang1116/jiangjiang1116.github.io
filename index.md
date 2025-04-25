@@ -4,22 +4,21 @@ layout: home
 
 hero:
   name: "vitepress"
-  text: "部署网站"
-  tagline: My great project tagline
+  text: "vv"
+  tagline: vv
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 中文
+      link: /zh/index
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 英文
+      link: /en/index
 
 features:
-  - title: Feature A
+  - title: 特性 A
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
+  - title: 特性 B
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
+  - title: 特性 C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-
