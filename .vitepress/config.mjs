@@ -1,9 +1,13 @@
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
+  head: [["link", { rel: "icon", type: "image/gif", href: "/images/dog.png" }]],
+  title: 'Sinbad-Website',
   themeConfig: {
+    logo: '/images/tree.jpg',
+    siteTitle: 'Homepage',
     nav: [
-      { text: "note", link: "/frontend/持续更新" },
+      { text: "笔记", link: "/frontend/持续更新" },
       {
         text: "掘金小册",
         items: [
@@ -15,7 +19,10 @@ export default defineConfig({
                 text: "大厂 H5 开发实战手册",
                 link: "/juejinbook/大厂H5开发实战手册/大厂H5开发概述",
               },
-              { text: "如何写出高质量的前端代码", link: "/juejinbook/如何写出高质量的前端代码/1-小册介绍" },
+              {
+                text: "如何写出高质量的前端代码",
+                link: "/juejinbook/如何写出高质量的前端代码/1-小册介绍",
+              },
             ],
           },
         ],
