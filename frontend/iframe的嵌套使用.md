@@ -15,7 +15,6 @@ iframe（Inline Frame） 是一种 HTML 标签，它允许在一个网页内部�
 
 #### 一、简单使用案列，网站中嵌套 Chatgpt
 
-![](images/cat.svg)
 
 ###### 1.它允许你在当前页面中嵌入另一个HTML文档。下面是如何在Vue中使用的基本步骤
 
