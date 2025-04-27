@@ -4,6 +4,7 @@ date: 2025-03-30 15:13:01
 tags:
 categories:
 ---
+
 具体 api 请查阅[docxtemplater 官网网站](https://docxtemplater.com/docs/)
 参考依赖：
 
@@ -18,7 +19,7 @@ categories:
 
 注意事项：
 
-- 注意file-saver与docxtemplater版本对应关系
+- 注意 file-saver 与 docxtemplater 版本对应关系
 - 需要 word 创建模板文件
 - word 模板后缀可为 doc/docx
 - word 导出样式在 word 模板里进行设置（字体，加粗等）
@@ -127,11 +128,7 @@ list:[
 ]
 ```
 
-模板：
+<a href="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0e6007f2f2ae498c8094ff1d920bd513~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=583&h=66&s=2712&e=webp&b=fffefe" target="_blank" rel="noreferrer">模板</a>
 注意，**这里右边的表格{#list}{unit}这行是插入的**
 
-<!-- ![这是一张示例图片](../public/images/markdown/table1.awebp)
-
-结果：
-
-![这是一张示例图片](../public/images/markdown/table2.awebp) -->
+<a href="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/935823f8a1d741e0a61d653ca4e62607~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=585&h=64&s=1910&e=webp&b=ffffff" target="_blank" rel="noreferrer">结果</a>

@@ -53,7 +53,25 @@ export default defineConfig({
             }
           ],
         },
-      ]
+        {
+          text: "vue",
+          items: [
+            {
+              text: "Object的变化侦测",
+              link: "/frontend/vue/Object的变化侦测",
+            }
+          ],
+        },
+        {
+          text: "HTML",
+          items: [
+            {
+              text: "a",
+              link: "/frontend/HTML/a",
+            }
+          ],
+        },
+      ],
     },
   },
 });
