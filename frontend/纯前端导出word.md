@@ -1,5 +1,5 @@
 ---
-title: 纯前端导出word-docxtemplater
+title: 使用docxtemplater实现前端导出word
 date: 2025-03-30 15:13:01
 tags:
 categories:
@@ -130,8 +130,8 @@ list:[
 模板：
 注意，**这里右边的表格{#list}{unit}这行是插入的**
 
-![这是一张示例图片](../images/markdown/table1.awebp)
+<!-- ![这是一张示例图片](../public/images/markdown/table1.awebp)
 
 结果：
 
-![这是一张示例图片](../images/markdown/table2.awebp)
+![这是一张示例图片](../public/images/markdown/table2.awebp) -->
