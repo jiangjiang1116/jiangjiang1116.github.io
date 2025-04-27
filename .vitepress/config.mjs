@@ -4,29 +4,10 @@ export default defineConfig({
   head: [["link", { rel: "icon", type: "image/gif", href: "/images/dog.png" }]],
   title: 'Sinbad-Website',
   themeConfig: {
-    logo: '/images/camera.png',
+    logo: '/images/eraser.png',
     siteTitle: 'Homepage',
     nav: [
       { text: "笔记", link: "/frontend/持续更新" },
-      // {
-      //   text: "掘金小册",
-      //   items: [
-      //     {
-      //       // 该部分的标题
-      //       // text: 'Section A Title',
-      //       items: [
-      //         {
-      //           text: "H5 开发实战手册",
-      //           link: "/juejinbook/大厂H5开发实战手册/大厂H5开发概述",
-      //         },
-      //         {
-      //           text: "如何写出高质量的前端代码",
-      //           link: "/juejinbook/如何写出高质量的前端代码/1-小册介绍",
-      //         },
-      //       ],
-      //     },
-      //   ],
-      // },
     ],
     sidebar: {
       // 当用户位于 `guide` 目录时，会显示此侧边栏
@@ -51,20 +32,24 @@ export default defineConfig({
               link: "/frontend/mock-js",
             },
             {
-              text: "使用docxtemplater实现前端导出word",
-              link: "/frontend/使用docxtemplater实现前端导出word",
+              text: "纯前端导出word:docxtemplater",
+              link: "/frontend/纯前端导出word",
             },
             {
-              text: "内存泄漏",
+              text: "内存泄漏的原因",
               link: "/frontend/内存泄漏",
-            },
-            {
-              text: "大屏",
-              link: "/frontend/大屏",
             },
             {
               text: "持续更新",
               link: "/frontend/持续更新",
+            },
+            {
+              text: "button",
+              link: "/frontend/button",
+            },
+            {
+              text: "原生合并单元格",
+              link: "/frontend/原生合并单元格",
             }
           ],
         },

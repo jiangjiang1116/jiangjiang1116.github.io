@@ -1,5 +1,5 @@
 ---
-title: 使用docxtemplater实现前端导出word
+title: 纯前端导出word-docxtemplater
 date: 2025-03-30 15:13:01
 tags:
 categories:
@@ -130,8 +130,8 @@ list:[
 模板：
 注意，**这里右边的表格{#list}{unit}这行是插入的**
 
-![这是一张示例图片](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0e6007f2f2ae498c8094ff1d920bd513~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=583&h=66&s=2712&e=webp&b=fffefe)
+![这是一张示例图片](../images/markdown/table1.awebp)
 
 结果：
 
-![这是一张示例图片](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/935823f8a1d741e0a61d653ca4e62607~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=585&h=64&s=1910&e=webp&b=ffffff)
+![这是一张示例图片](../images/markdown/table2.awebp)
