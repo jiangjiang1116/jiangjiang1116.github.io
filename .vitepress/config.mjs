@@ -71,6 +71,15 @@ export default defineConfig({
             }
           ],
         },
+        {
+          text: "ant",
+          items: [
+            {
+              text: "select",
+              link: "/frontend/ant/select",
+            }
+          ],
+        },
       ],
     },
   },
