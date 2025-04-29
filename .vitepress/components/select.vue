@@ -14,9 +14,28 @@ export default defineComponent({
 
       message.info(`${selectedLabel[0].children}+${selectedValue}`); // 或 message.info(selectedValue);
       console.log('Selected value changed:', selectedLabel, selectedValue);
+
     }
-    //[0]
-   
+
+/*
+ * @lc app=leetcode.cn id=387 lang=javascript
+ *
+ * [387] 字符串中的第一个唯一字符
+ */
+
+// @lc code=start
+/**
+ * @param {string} s
+ * @return {number}
+ */
+ var firstUniqChar = function(s) {
+    
+  };
+  // @lc code=end
+  
+  
+
+
 
 
     return {
@@ -33,7 +52,7 @@ export default defineComponent({
   <a-config-provider :theme="{
     algorithm: isDark ? theme.darkAlgorithm : theme.defaultAlgorithm,
   }">
-    <a-select v-model:value="selectedValue" placeholder="请选择一个选项" :label-in-value="true" @change="handleSelectChange">
+    <a-select v-model:value="selectedValue" placeholder="同时获取select的value与label" :label-in-value="true" @change="handleSelectChange">
       <a-select-option key="1" value="option1">选项1</a-select-option>
       <a-select-option key="2" value="option2">选项2</a-select-option>
       <a-select-option key="3" value="option3">选项3</a-select-option>
