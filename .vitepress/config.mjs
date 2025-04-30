@@ -1,6 +1,7 @@
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
+  base: '/docs/',
   head: [["link", { rel: "icon", type: "image/gif", href: "/images/dog.png" }]],
   title: 'Sinbad-Website',
   themeConfig: {
