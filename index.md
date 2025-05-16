@@ -19,11 +19,11 @@ hero:
 
 features:
   - icon: 😀
-    title: 特性 A
+    title: 特性 AA
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: 特性 B
+  - title: 特性 BB
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: 特性 C
+  - title: 特性 CC
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 <!-- <div class="feature">
