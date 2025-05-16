@@ -1,5 +1,5 @@
 <template>
-  <a-tree-select style="width: 100%" showSearch tree-node-filter-prop="label" v-model:value="selectValue"
+  <a-tree-select style="width: 100%" showSearch tree-node-filter-prop="label" v-model:value="selectValue" open
     :tree-data="sysIndList" allowClear :treeExpandedKeys="treeExpandedKeys" @treeExpand="onTreeExpand"
     placeholder="点击父节点文字展开子节点">
     <template #title="{ title, key }">
@@ -55,6 +55,8 @@ export default {
   },
   methods: {
     toggleExpand(key) {
+      console.log('toggleExpand');
+      
       // 点击节点标题时，切换展开状态
       const idx = this.treeExpandedKeys.findIndex((item) => item === key);
       if (idx === -1) {
@@ -64,6 +66,8 @@ export default {
       }
     },
     onTreeExpand(expandedKeys) {
+      console.log('onTreeExpand');
+      
       // 同步 treeExpandedKeys 的状态
       this.treeExpandedKeys = expandedKeys;
     },
