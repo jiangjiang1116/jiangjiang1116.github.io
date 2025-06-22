@@ -11,7 +11,7 @@ hero:
     alt: 网页的logo图标
   actions:
     - theme: brand
-      text: 笔记
+      text: 笔记1
       link: /frontend/持续更新
     - theme: alt
       text: 掘金小册
