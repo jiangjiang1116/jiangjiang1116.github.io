@@ -1,15 +1,13 @@
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
-  base: '/',
+  base: "/",
   head: [["link", { rel: "icon", type: "image/gif", href: "/images/dog.png" }]],
-  title: 'Sinbad-Website',
+  title: "Sinbad-Website",
   themeConfig: {
-    logo: '/images/eraser.png',
-    siteTitle: 'Homepage',
-    nav: [
-      { text: "笔记", link: "/frontend/持续更新" },
-    ],
+    logo: "/images/eraser.png",
+    siteTitle: "Homepage",
+    nav: [{ text: "note", link: "/frontend/持续更新" }],
     sidebar: {
       // 当用户位于 `guide` 目录时，会显示此侧边栏
       "/frontend/": [
@@ -51,7 +49,11 @@ export default defineConfig({
             {
               text: "原生合并单元格",
               link: "/frontend/原生合并单元格",
-            }
+            },
+            {
+              text: "webpack自动打开浏览器原理",
+              link: "/frontend/webpack自动打开浏览器原理",
+            },
           ],
         },
         {
@@ -60,7 +62,7 @@ export default defineConfig({
             {
               text: "Object的变化侦测",
               link: "/frontend/vue/Object的变化侦测",
-            }
+            },
           ],
         },
         {
@@ -69,7 +71,7 @@ export default defineConfig({
             {
               text: "a",
               link: "/frontend/HTML/a",
-            }
+            },
           ],
         },
         {
@@ -78,7 +80,7 @@ export default defineConfig({
             {
               text: "select",
               link: "/frontend/ant/select",
-            }
+            },
           ],
         },
       ],
