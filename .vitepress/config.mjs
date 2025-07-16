@@ -54,6 +54,10 @@ export default defineConfig({
               text: "webpack自动打开浏览器原理",
               link: "/frontend/webpack自动打开浏览器原理",
             },
+            {
+              text: "threeJs",
+              link: "/frontend/threeJs学习记录",
+            },
           ],
         },
         {
