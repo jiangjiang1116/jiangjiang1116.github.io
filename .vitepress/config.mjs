@@ -58,6 +58,10 @@ export default defineConfig({
               text: "threeJs",
               link: "/frontend/threeJs学习记录",
             },
+            {
+              text: "duyi",
+              link: "/frontend/duyi",
+            },
           ],
         },
         {
