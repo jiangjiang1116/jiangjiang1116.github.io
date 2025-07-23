@@ -18,6 +18,19 @@
     ]
   },
   {
+    "text": "node",
+    "items": [
+      {
+        "text": "Npm install 原理",
+        "link": "/frontend/node/Npm install 原理"
+      },
+      {
+        "text": "Npm run 原理",
+        "link": "/frontend/node/Npm run 原理"
+      }
+    ]
+  },
+  {
     "text": "vue",
     "items": [
       {

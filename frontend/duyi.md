@@ -25,3 +25,18 @@ Math.random()              // → 0.7819324728534304
           .toString(36)    // → "0.jwz3d4b1i"
                    .substr(2) // → "jwz3d4b1i"
 ```
+4.编辑距离(比较字符串最小操作数)
+```js
+/**
+ * 最简单 Levenshtein 距离示例（浏览器 / Node 皆可运行）
+ * 使用 npm i fastest-levenshtein
+ */
+
+import { distance } from 'fastest-levenshtein';
+
+const a = 'kitten';
+const b = 'sitting';
+
+const d = distance(a, b);   // 3
+console.log(`"${a}" vs "${b}" 的编辑距离 = ${d}`);
+```
