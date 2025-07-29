@@ -1,8 +1,12 @@
 import { readdirSync, statSync } from 'node:fs';
 import { join, extname } from 'node:path';
 import { writeFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, resolve } from 'node:path';
 
-const DOCS_ROOT   = 'D:\\workspace\\docs';          // 项目根目录
+// 当前脚本目录：假设项目结构是 <docs>/.vitepress/make-sidebar.js
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const DOCS_ROOT   = resolve(__dirname, '..'); 
 const SCAN_BASE   = join(DOCS_ROOT, 'frontend');    // 要扫描的目录
 const OUTPUT_FILE = join(DOCS_ROOT, '.vitepress', 'sidebar-auto.json');
 

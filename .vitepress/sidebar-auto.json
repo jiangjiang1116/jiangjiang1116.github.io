@@ -40,6 +40,15 @@
     ]
   },
   {
+    "text": "测试",
+    "items": [
+      {
+        "text": "测试",
+        "link": "/frontend/测试/测试"
+      }
+    ]
+  },
+  {
     "text": "button",
     "link": "/frontend/button"
   },
