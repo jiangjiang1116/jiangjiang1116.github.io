@@ -18,6 +18,7 @@
     }
   },
   "dependencies": {
-    "ant-design-vue": "^4.0.0-rc.6"
+    "ant-design-vue": "^4.0.0-rc.6",
+    "rough-notation": "^0.5.1"
   }
 }

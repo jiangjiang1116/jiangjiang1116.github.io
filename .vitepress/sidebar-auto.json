@@ -40,11 +40,11 @@
     ]
   },
   {
-    "text": "测试",
+    "text": "网络",
     "items": [
       {
-        "text": "测试",
-        "link": "/frontend/测试/测试"
+        "text": "http",
+        "link": "/frontend/网络/http"
       }
     ]
   },
