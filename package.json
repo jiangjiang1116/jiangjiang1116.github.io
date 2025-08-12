@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "ant-design-vue": "^4.0.0-rc.6",
-    "rough-notation": "^0.5.1"
+    "rough-notation": "^0.5.1",
+    "vitepress-plugin-image-viewer": "^1.1.6"
   }
 }
