@@ -6,18 +6,19 @@ import { dirname, resolve } from 'node:path';
 
 // 当前脚本目录：假设项目结构是 <docs>/.vitepress/make-sidebar.js
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const DOCS_ROOT   = resolve(__dirname, '..'); 
-const SCAN_BASE   = join(DOCS_ROOT, 'frontend');    // 要扫描的目录
+const DOCS_ROOT = resolve(__dirname, '..'); 
+const SCAN_BASE = join(DOCS_ROOT, 'frontend');    // 要扫描的目录
 const OUTPUT_FILE = join(DOCS_ROOT, '.vitepress', 'sidebar-auto.json');
 
 function scan(dir, base = '') {
   const items = [];
   for (const name of readdirSync(dir, { withFileTypes: true })) {
     const fullPath = join(dir, name.name);
-    const relPath  = join(base, name.name);
+    const relPath = join(base, name.name);
     if (name.isDirectory()) {
       items.push({ text: name.name, items: scan(fullPath, relPath) });
-    } else if (extname(name.name) === '.md') {
+    } else if (extname(name.name) === '.md' && !name.name.startsWith('@')) {
+      // 跳过以 @ 开头的文件
       const link = '/frontend/' + relPath.replace(/\\/g, '/').replace(/\.md$/, '');
       items.push({ text: name.name.replace(/\.md$/, ''), link });
     }

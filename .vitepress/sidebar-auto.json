@@ -43,8 +43,24 @@
     "text": "网络",
     "items": [
       {
+        "text": "1.分层模型和应用协议",
+        "link": "/frontend/网络/1.分层模型和应用协议"
+      },
+      {
+        "text": "2.浏览器的通信能力",
+        "link": "/frontend/网络/2.浏览器的通信能力"
+      },
+      {
+        "text": "3.跨域问题和解决方案",
+        "link": "/frontend/网络/3.跨域问题和解决方案"
+      },
+      {
         "text": "http协议",
         "link": "/frontend/网络/http协议"
+      },
+      {
+        "text": "XHR与Fetch",
+        "link": "/frontend/网络/XHR与Fetch"
       }
     ]
   },
