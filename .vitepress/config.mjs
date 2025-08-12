@@ -11,6 +11,13 @@ export default defineConfig({
     nav: [{ text: 'note', link: '/frontend/持续更新' }],
     sidebar: {
       '/frontend/': sidebarAuto
+    },
+    lastUpdated: {
+      text: '最后更新于', // 自定义文本
+      formatOptions: {
+        dateStyle: 'short', // 日期格式
+        timeStyle: 'medium' // 时间格式
+      }
     }
   }
 });
