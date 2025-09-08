@@ -31,4 +31,4 @@ function scan(dir, base = '') {
 
 const sidebar = scan(SCAN_BASE);
 writeFileSync(OUTPUT_FILE, JSON.stringify(sidebar, null, 2));
-console.log('✅ sidebar-auto.json 已生成');
+console.log('✅ 新路由json 已生成');
