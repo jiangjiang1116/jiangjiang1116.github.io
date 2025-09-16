@@ -6,11 +6,15 @@ export default defineConfig({
   head: [['link', { rel: 'icon', type: 'image/gif', href: '/images/dog.png' }]],
   title: 'Sinbad-Website',
   themeConfig: {
+    
     logo: '/images/eraser.png',
     siteTitle: 'Homepage',
     nav: [{ text: 'note', link: '/frontend/持续更新' }],
     sidebar: {
       '/frontend/': sidebarAuto
+    },
+    search: {
+      provider: 'local'
     },
     lastUpdated: {
       text: '最后更新于', // 自定义文本
