@@ -9,10 +9,10 @@ hero:
   image:
     src: /images/CD.png
     alt: 网页的logo图标
-  actions:
-    - theme: brand
-      text: note
-      link: /frontend/持续更新
+  # actions:
+  #   - theme: brand
+  #     text: note
+  #     link: /frontend/持续更新
     # - theme: alt
     #   text: 掘金小册
     #   link: /juejinbook/如何写出高质量的前端代码/1-小册介绍

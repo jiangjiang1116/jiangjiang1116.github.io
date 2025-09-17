@@ -6,7 +6,10 @@ import sign from '../components/sign.vue'; // 引入自定义的 Mark 组件
 import 'viewerjs/dist/viewer.min.css'; // 引入 ViewerJS 的样式文件
 import imageViewer from 'vitepress-plugin-image-viewer'; // 使用默认导入
 import vImageViewer from 'vitepress-plugin-image-viewer/lib/vImageViewer.vue'; // 引入组件
-import { useRoute } from 'vitepress';
+import Gallery from '../components/Gallery.vue'; import { useRoute } from 'vitepress';
+// 导入链接样式
+import '../styles/link.scss'
+import '../styles/index.css'
 
 export default {
   ...Theme,
@@ -17,6 +20,7 @@ export default {
     app.use(Antd);
     app.component('sign', sign); // 黄色划线组件
     app.component('vImageViewer', vImageViewer);// 图片预览组件
+    app.component('Gallery', Gallery);
   },
   setup() {
     const route = useRoute();

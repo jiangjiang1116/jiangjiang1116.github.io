@@ -3,6 +3,7 @@
   "devDependencies": {
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
+    "sass-embedded": "^1.92.1",
     "vitepress": "^1.6.3"
   },
   "scripts": {
@@ -14,12 +15,14 @@
   },
   "config": {
     "commitizen": {
-     "path": "cz-emoji"
+      "path": "cz-emoji"
     }
   },
   "dependencies": {
     "ant-design-vue": "^4.0.0-rc.6",
+    "markdown-it-container": "^4.0.0",
     "rough-notation": "^0.5.1",
-    "vitepress-plugin-image-viewer": "^1.1.6"
+    "vitepress-plugin-image-viewer": "^1.1.6",
+    "vue-silentbox": "^3.0.4"
   }
 }

@@ -8,7 +8,7 @@ import { dirname, resolve } from "node:path";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DOCS_ROOT = resolve(__dirname, "..");
 const SCAN_BASE = join(DOCS_ROOT, "frontend"); // 要扫描的目录
-const OUTPUT_FILE = join(DOCS_ROOT, ".vitepress", "sidebar-auto.json");
+const OUTPUT_FILE = join(DOCS_ROOT, ".vitepress", "fronted.json");
 
 function scan(dir, base = "") {
   const items = [];

@@ -14,8 +14,8 @@
     "collapsed": true,
     "items": [
       {
-        "text": "a",
-        "link": "/frontend/HTML/a"
+        "text": "a标签",
+        "link": "/frontend/HTML/a标签"
       }
     ]
   },
@@ -34,6 +34,16 @@
     ]
   },
   {
+    "text": "vitepress",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "建站资源",
+        "link": "/frontend/vitepress/建站资源"
+      }
+    ]
+  },
+  {
     "text": "vue",
     "collapsed": true,
     "items": [
@@ -44,12 +54,12 @@
     ]
   },
   {
-    "text": "杂",
+    "text": "技巧",
     "collapsed": true,
     "items": [
       {
         "text": "利用rar提取excel中所有图片的方法",
-        "link": "/frontend/杂/利用rar提取excel中所有图片的方法"
+        "link": "/frontend/技巧/利用rar提取excel中所有图片的方法"
       }
     ]
   },
@@ -78,10 +88,6 @@
         "link": "/frontend/网络/XHR与Fetch"
       }
     ]
-  },
-  {
-    "text": "button",
-    "link": "/frontend/button"
   },
   {
     "text": "cesium使用",
