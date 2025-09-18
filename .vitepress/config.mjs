@@ -25,6 +25,7 @@ export default defineConfig({
       }
     }
   },
+  
   // md的居中类
   markdown: {
     config: (md) => {
@@ -41,6 +42,13 @@ export default defineConfig({
           }
         }
       });
+    },
+    container: {
+      tipLabel: '\n',
+      warningLabel: '\n',
+      dangerLabel: '\n',
+      infoLabel: '\n',
+      detailsLabel: '\n'
     }
   },
   //Vite 将使用现代的 Sass API，而不是即将被废弃的旧版 API

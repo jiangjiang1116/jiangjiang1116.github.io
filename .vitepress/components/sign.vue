@@ -12,7 +12,7 @@ export default {
   props: {
     type: {
       type: String,
-      default: "underline", //underline box circle highlight strike-through crossed-off bracket 
+      default: "circle", //underline box circle highlight strike-through crossed-off bracket 
     },
     color: {
       type: String,

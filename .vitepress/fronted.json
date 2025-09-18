@@ -38,8 +38,16 @@
     "collapsed": true,
     "items": [
       {
+        "text": "去除INFO标题的方法",
+        "link": "/frontend/vitepress/去除INFO标题的方法"
+      },
+      {
         "text": "建站资源",
         "link": "/frontend/vitepress/建站资源"
+      },
+      {
+        "text": "生成配置导航",
+        "link": "/frontend/vitepress/生成配置导航"
       }
     ]
   },
