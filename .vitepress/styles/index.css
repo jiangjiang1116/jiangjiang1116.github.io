@@ -1,4 +1,13 @@
 .center-text {
   text-align: center;
-  color:rgba(220, 220, 220, .45);
+  font-size: 14px;
+  color: rgba(220, 220, 220, 0.45);
+  font-family:  "华文中宋",
+    "Times New Roman";
+}
+
+.title-text {
+  text-align: center;
+  font-family: "Noto Serif SC-Local", "Noto Serif SC", "华文中宋",
+    "Times New Roman";
 }
