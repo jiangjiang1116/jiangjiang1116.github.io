@@ -30,7 +30,7 @@ export default defineConfig({
   // md的居中类
   markdown: {
     config: (md) => {
-      // 添加自定义的 ::: title 容器
+      // ::: title 容器
       md.use(markdownItContainer, 'title', {
         render: (tokens, idx) => {
           const token = tokens[idx];
@@ -45,7 +45,7 @@ export default defineConfig({
         }
       });
 
-      // 添加已有的 ::: center 容器
+      // ::: center 容器
       md.use(markdownItContainer, 'center', {
         validate: (params) => params.trim().match(/^center\s*(.*)/),
         render: (tokens, idx) => {
@@ -59,6 +59,13 @@ export default defineConfig({
           }
         }
       });
+
+      md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
+          let htmlResult = slf.renderToken(tokens, idx, options);
+          if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`; 
+          return htmlResult;
+      }
+
     },
     container: {
       tipLabel: '\n',
