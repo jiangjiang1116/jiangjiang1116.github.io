@@ -4,8 +4,8 @@ date: 2024-10-24 14:26:05
 ---
 
 <script setup>
-import SpecialSelect from "../../.vitepress/components/select.vue"
-import TreeSelect from "../../.vitepress/components/TreeSelect.vue"
+import SpecialSelect from "../../.vitepress/theme/components/select.vue"
+import TreeSelect from "../../.vitepress/theme/components/TreeSelect.vue"
 </script>
 
 ## 同时打印标题和值
