@@ -10,6 +10,20 @@
     ]
   },
   {
+    "text": "CSS",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "如何实现包裹阴影",
+        "link": "/frontend/CSS/如何实现包裹阴影"
+      },
+      {
+        "text": "平滑滚动",
+        "link": "/frontend/CSS/平滑滚动"
+      }
+    ]
+  },
+  {
     "text": "HTML",
     "collapsed": true,
     "items": [
