@@ -9,11 +9,12 @@ interface Props {
     logo: string
 }
 
+// default
 const props = withDefaults(defineProps<Props>(), {
     url: '',
     title: '',
     description: '',
-    logo: '',
+    logo: 'https://api.iconify.design/heroicons-solid:link.svg?color=%23409eff',
 })
 </script>
 
