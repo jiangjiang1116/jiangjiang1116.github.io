@@ -1,12 +1,12 @@
 @import './hidden.css';
 @import './blur.css';
+@import './home.css';
 
 
 .center-text {
   text-align: center;
   font-size: 14px;
-  font-family:  "华文中宋",
-    "Times New Roman";
+  font-family:  "华文中宋","Times New Roman";
 }
 
 .title-text {

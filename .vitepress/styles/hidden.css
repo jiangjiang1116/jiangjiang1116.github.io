@@ -1,10 +1,16 @@
 /* .vitepress\theme\style\hidden.css */
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 :root {
 
     /* 文档页Logo出文字下横条 */
     @media (min-width: 960px) {
         .VPNavBarTitle.has-sidebar .title {
             border-bottom-color: transparent;
+            font-family: luckiest guy;
+        }
+        .VPNavBarTitle.has-sidebar .title span:hover {
+           transform: scale(1.2);
+            transition: transform 0.5s ease-in-out;
         }
     }
 
