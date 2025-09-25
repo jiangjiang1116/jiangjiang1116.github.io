@@ -65,6 +65,7 @@ onMounted(() => {
 .word {
   color: var(--vp-c-text-2);
   font-size: 15px;
+  cursor: pointer;
 }
 
 .icon {
