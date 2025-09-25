@@ -26,6 +26,3 @@ features:
   # - title: 特性 CC
   #   details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-<!-- <div class="feature">
-  <img src="/images/CD.png" style="height:500px; width:auto;margin: 0 auto;" alt="特性 A 图片" />
-</div> -->
