@@ -14,12 +14,20 @@
     "collapsed": true,
     "items": [
       {
-        "text": "如何实现包裹阴影",
-        "link": "/frontend/CSS/如何实现包裹阴影"
+        "text": "包裹阴影",
+        "link": "/frontend/CSS/包裹阴影"
+      },
+      {
+        "text": "复合属性",
+        "link": "/frontend/CSS/复合属性"
       },
       {
         "text": "平滑滚动",
         "link": "/frontend/CSS/平滑滚动"
+      },
+      {
+        "text": "空心文字",
+        "link": "/frontend/CSS/空心文字"
       }
     ]
   },
