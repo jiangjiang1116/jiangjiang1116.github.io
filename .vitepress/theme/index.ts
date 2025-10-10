@@ -10,6 +10,8 @@ import Gallery from './components/Gallery.vue';
 import Linkcard from "./components/Linkcard.vue";
 import update from "./components/update.vue";
 import ArticleMetadata from "./components/ArticleMetadata.vue"
+import Quote from "./components/Quote.vue"
+import Card from "./components/Card.vue"
 import BackToTop from './components/BackToTop.vue';
 import { useRoute } from 'vitepress';
 // 导入链接样式
@@ -29,6 +31,8 @@ export default {
     app.component('Linkcard', Linkcard);
     app.component('update' , update);
     app.component('ArticleMetadata' , ArticleMetadata);
+    app.component('Quote' , Quote);
+    app.component('Card' , Card);
     app.component('BackToTop', BackToTop);
   },
   setup() {

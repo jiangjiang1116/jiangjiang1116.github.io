@@ -78,6 +78,10 @@
       {
         "text": "生成配置导航",
         "link": "/frontend/vitepress/生成配置导航"
+      },
+      {
+        "text": "组件备忘录",
+        "link": "/frontend/vitepress/组件备忘录"
       }
     ]
   },
