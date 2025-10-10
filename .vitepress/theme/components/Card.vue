@@ -1,20 +1,26 @@
 <template>
-  <div class="card" :style="cardStyle" @click="toggleModal">
+  <div
+    class="card"
+    :style="cardStyle"
+    ref="cardRef"
+    :class="{ 'card--hover': isHovered }"
+    @mouseenter="handleMouseEnter"
+    @mouseleave="handleMouseLeave"
+  >
     <div class="card__content">
       <h2 class="card__title">{{ title }}</h2>
       <p class="card__description">{{ content }}</p>
-      <!-- <button class="card__button">了解更多</button> -->
     </div>
-    <!-- <svg viewBox="0 0 24 24" class="card__icon">
-      <path d="M12 2L1 21h22L12 2zm0 16c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"></path>
-    </svg> -->
   </div>
 
-  <!-- Modal for full-screen image view -->
+  <!-- Modal for half-screen content view -->
   <div v-if="isModalOpen" class="modal" @click="toggleModal">
     <div class="modal__content" @click.stop>
-      <img :src="image" alt="Full-size image" class="modal__image" />
       <button class="modal__close" @click="toggleModal">关闭</button>
+      <div class="modal__text-content">
+        <h2 class="modal__title">{{ title }}</h2>
+        <p class="modal__description">{{ content }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -42,13 +48,10 @@ export default {
   },
   data() {
     return {
-      isModalOpen: false
+      isModalOpen: false,
+      isHovered: false,
+      isManuallyHovered: false
     };
-  },
-  methods: {
-    toggleModal() {
-      this.isModalOpen = !this.isModalOpen;
-    }
   },
   computed: {
     cardStyle() {
@@ -57,6 +60,47 @@ export default {
         aspectRatio: this.aspectRatio
       };
     }
+  },
+  mounted() {
+    this.setupIntersectionObserver();
+  },
+  methods: {
+    setupIntersectionObserver() {
+      const options = {
+        root: null, // 视窗
+        rootMargin: '0px',
+        threshold: 0.5 // 至少50%可见
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !this.isManuallyHovered) {
+            this.isHovered = true;
+            observer.unobserve(entry.target); // 停止观察
+          } else if (!entry.isIntersecting) {
+            this.isHovered = false;
+          }
+        });
+      }, options);
+
+      observer.observe(this.$refs.cardRef);
+    },
+    handleMouseEnter() {
+      this.isManuallyHovered = true;
+      this.isHovered = false;
+    },
+    handleMouseLeave() {
+      this.isManuallyHovered = false;
+      this.isHovered = false;
+    },
+    toggleModal() {
+      this.isModalOpen = !this.isModalOpen;
+      if (this.isModalOpen) {
+        document.body.style.overflow = 'hidden'; // 防止滚动
+      } else {
+        document.body.style.overflow = 'auto'; // 恢复滚动
+      }
+    }
   }
 }
 </script>
@@ -64,7 +108,7 @@ export default {
 <style scoped>
 .card {
   position: relative;
-  width: 350px;
+  width: 80%;
   background-color: #f2f2f2;
   border-radius: 10px;
   display: flex;
@@ -76,7 +120,6 @@ export default {
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   background-size: cover;
   background-position: center;
-  cursor: pointer;
   margin: 20px auto; /* 水平居中 */
 }
 
@@ -86,7 +129,8 @@ export default {
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.card:hover {
+.card:hover,
+.card.card--hover {
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
 }
@@ -105,24 +149,26 @@ export default {
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.card:hover .card__content {
+.card:hover .card__content,
+.card.card--hover .card__content {
   transform: rotateX(0deg);
 }
 
 .card__title {
   margin: 0;
-  font-size: 20px;
+  font-size: 30px;
   color: #333;
   font-weight: 700;
 }
 
-.card:hover svg {
+.card:hover svg,
+.card.card--hover svg {
   scale: 0;
 }
 
 .card__description {
   margin: 10px 0 10px;
-  font-size: 12px;
+  font-size: 24px;
   color: #777;
   line-height: 1.4;
 }
@@ -150,8 +196,9 @@ export default {
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   z-index: 1000;
+  backdrop-filter: blur(5px); /* 模糊背景 */
 }
 
 .modal__content {
@@ -160,19 +207,12 @@ export default {
   padding: 20px;
   border-radius: 10px;
   max-width: 90%;
-  max-height: 90%;
+  height: 50%; /* 半屏高度 */
   overflow: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.modal__image {
-  width: 100%;
-  height: auto;
-  display: block;
-  max-width: 100%;
-  max-height: 80%; /* 限制图片高度，避免超出屏幕 */
+  margin-top: 20px; /* 距离顶部的间距 */
 }
 
 .modal__close {
@@ -189,6 +229,25 @@ export default {
 
 .modal__close:hover {
   background: #666;
+}
+
+.modal__text-content {
+  text-align: center;
+  width: 100%;
+}
+
+.modal__title {
+  margin: 0 0 10px;
+  font-size: 24px;
+  color: #333;
+  font-weight: 700;
+}
+
+.modal__description {
+  margin: 0 0 20px;
+  font-size: 14px;
+  color: #777;
+  line-height: 1.6;
 }
 
 /* Responsive styles */
