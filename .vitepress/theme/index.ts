@@ -13,6 +13,7 @@ import ArticleMetadata from "./components/ArticleMetadata.vue"
 import Quote from "./components/Quote.vue"
 import Card from "./components/Card.vue"
 import BackToTop from './components/BackToTop.vue';
+import Search from "./components/Search.vue"
 import { useRoute } from 'vitepress';
 // 导入链接样式
 import '../styles/link.scss'
@@ -34,6 +35,7 @@ export default {
     app.component('Quote' , Quote);
     app.component('Card' , Card);
     app.component('BackToTop', BackToTop);
+    app.component('Search', Search);
   },
   setup() {
     const route = useRoute();
