@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress';
 import fronted from '../.vitepress/fronted.json' assert { type: 'json' };
 import notes from '../.vitepress/notes.json' assert { type: 'json' };
 import markdownItContainer from 'markdown-it-container';
+import { groupIconMdPlugin, groupIconVitePlugin,localIconLoader  } from 'vitepress-plugin-group-icons'
 
 export default defineConfig({
   base: '/',
@@ -45,6 +46,8 @@ export default defineConfig({
         }
       });
 
+      md.use(groupIconMdPlugin) //代码组图标
+
       // ::: center 容器
       md.use(markdownItContainer, 'center', {
         validate: (params) => params.trim().match(/^center\s*(.*)/),
@@ -75,7 +78,18 @@ export default defineConfig({
       detailsLabel: '\n'
     }
   },
-  // Vite 将使用现代的 Sass API，而不是即将被废弃的旧版 API
+   vite: {
+    plugins: [
+      groupIconVitePlugin({ 
+        customIcon: {
+          js: 'logos:javascript', //js图标
+          md: 'logos:markdown', //markdown图标
+          css: 'logos:css-3', //css图标
+          json: 'logos:json', //js图标
+        },
+      })
+    ],
+  },
   css: {
     preprocessorOptions: {
       scss: {

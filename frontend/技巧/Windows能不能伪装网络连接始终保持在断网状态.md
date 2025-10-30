@@ -1,0 +1,1 @@
+[Windows能不能伪装网络连接始终保持在断网状态](https://linux.do/t/topic/149547)

@@ -50,9 +50,23 @@
     ]
   },
   {
+    "text": "JS",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "ES6",
+        "link": "/frontend/JS/ES6"
+      }
+    ]
+  },
+  {
     "text": "node",
     "collapsed": true,
     "items": [
+      {
+        "text": "node后端",
+        "link": "/frontend/node/node后端"
+      },
       {
         "text": "Npm install 原理",
         "link": "/frontend/node/Npm install 原理"

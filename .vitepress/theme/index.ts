@@ -18,24 +18,40 @@ import { useRoute } from 'vitepress';
 // 导入链接样式
 import '../styles/link.scss'
 import '../styles/index.css'
+import { inBrowser } from 'vitepress'
+import busuanzi from 'busuanzi.pure.js'
+import { h } from 'vue' // h函数
+// 组件
+import bsz from "./components/bsz.vue";
+import 'virtual:group-icons.css' //代码组样式
 
 export default {
   ...Theme,
   Layout: () => {
-    return h(Theme.Layout);
+     return h(Theme.Layout, null, {
+
+      // 指定组件使用layout-bottom插槽
+      'layout-bottom': () => h(bsz),
+
+    })
   },
-  enhanceApp({ app }) {
+  enhanceApp({ app, router }) {
     app.use(Antd);
     app.component('sign', sign); // 黄色划线组件
     app.component('vImageViewer', vImageViewer);// 图片预览组件
     app.component('Gallery', Gallery);
     app.component('Linkcard', Linkcard);
-    app.component('update' , update);
-    app.component('ArticleMetadata' , ArticleMetadata);
-    app.component('Quote' , Quote);
-    app.component('Card' , Card);
+    app.component('update', update);
+    app.component('ArticleMetadata', ArticleMetadata);
+    app.component('Quote', Quote);
+    app.component('Card', Card);
     app.component('BackToTop', BackToTop);
     app.component('Search', Search);
+    if (inBrowser) {
+      router.onAfterRouteChanged = () => {
+        busuanzi.fetch()
+      }
+    }
   },
   setup() {
     const route = useRoute();
