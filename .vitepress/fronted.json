@@ -114,6 +114,10 @@
     "collapsed": true,
     "items": [
       {
+        "text": "Windows能不能伪装网络连接始终保持在断网状态",
+        "link": "/frontend/技巧/Windows能不能伪装网络连接始终保持在断网状态"
+      },
+      {
         "text": "利用rar提取excel中所有图片的方法",
         "link": "/frontend/技巧/利用rar提取excel中所有图片的方法"
       }
