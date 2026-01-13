@@ -11,7 +11,7 @@ export default defineConfig({
   themeConfig: {
     logo: '/images/eraser.png',
     siteTitle: 'Homepage',
-    nav: [{ text: 'Code', link: '/frontend/持续更新' }, { text: 'note', link: '/notes/收藏' }],
+    nav: [{ text: 'Code', link: '/frontend/杂谈/持续更新' }, { text: 'note', link: '/notes/收藏' }],
     sidebar: {
       '/frontend/': fronted,
       '/notes': notes
