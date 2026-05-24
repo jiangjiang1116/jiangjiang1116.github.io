@@ -186,6 +186,10 @@
       {
         "text": "a标签",
         "link": "/frontend/HTML/a标签"
+      },
+      {
+        "text": "defer与async",
+        "link": "/frontend/HTML/defer与async"
       }
     ]
   },
