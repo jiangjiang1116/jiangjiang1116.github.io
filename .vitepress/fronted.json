@@ -146,6 +146,124 @@
             "link": "/frontend/cesium/basic/32. 加载栅格数据"
           }
         ]
+      },
+      {
+        "text": "senior",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "01. ion云平台内置资源",
+            "link": "/frontend/cesium/senior/01. ion云平台内置资源"
+          },
+          {
+            "text": "02. ion云平台上传资源",
+            "link": "/frontend/cesium/senior/02. ion云平台上传资源"
+          },
+          {
+            "text": "03. ion REST API（1）",
+            "link": "/frontend/cesium/senior/03. ion REST API（1）"
+          },
+          {
+            "text": "04. ion REST API（2）",
+            "link": "/frontend/cesium/senior/04. ion REST API（2）"
+          },
+          {
+            "text": "05. ion云平台辅助工具",
+            "link": "/frontend/cesium/senior/05. ion云平台辅助工具"
+          },
+          {
+            "text": "06. 什么是3D Tiles",
+            "link": "/frontend/cesium/senior/06. 什么是3D Tiles"
+          },
+          {
+            "text": "07. 数据转换3D Tiles",
+            "link": "/frontend/cesium/senior/07. 数据转换3D Tiles"
+          },
+          {
+            "text": "08. 3D Tiles样式控制",
+            "link": "/frontend/cesium/senior/08. 3D Tiles样式控制"
+          },
+          {
+            "text": "09. 3D Tiles交互控制",
+            "link": "/frontend/cesium/senior/09. 3D Tiles交互控制"
+          },
+          {
+            "text": "10. 3D Tiles之点云数据",
+            "link": "/frontend/cesium/senior/10. 3D Tiles之点云数据"
+          },
+          {
+            "text": "11. 3D Tiles之shp文件",
+            "link": "/frontend/cesium/senior/11. 3D Tiles之shp文件"
+          },
+          {
+            "text": "12. 实体的运动轨迹（1）",
+            "link": "/frontend/cesium/senior/12. 实体的运动轨迹（1）"
+          },
+          {
+            "text": "13. 实体的运动轨迹（2）",
+            "link": "/frontend/cesium/senior/13. 实体的运动轨迹（2）"
+          },
+          {
+            "text": "14. 高德API+运动轨迹",
+            "link": "/frontend/cesium/senior/14. 高德API+运动轨迹"
+          },
+          {
+            "text": "15. GeoJSON+运动轨迹",
+            "link": "/frontend/cesium/senior/15. GeoJSON+运动轨迹"
+          },
+          {
+            "text": "16. CZML+运动轨迹",
+            "link": "/frontend/cesium/senior/16. CZML+运动轨迹"
+          },
+          {
+            "text": "17. 粒子系统与配置",
+            "link": "/frontend/cesium/senior/17. 粒子系统与配置"
+          },
+          {
+            "text": "18. 粒子的发射器类型",
+            "link": "/frontend/cesium/senior/18. 粒子的发射器类型"
+          },
+          {
+            "text": "19. 粒子方向与位置",
+            "link": "/frontend/cesium/senior/19. 粒子方向与位置"
+          },
+          {
+            "text": "20. 粒子+运动轨迹",
+            "link": "/frontend/cesium/senior/20. 粒子+运动轨迹"
+          },
+          {
+            "text": "21. 着色器基本语法",
+            "link": "/frontend/cesium/senior/21. 着色器基本语法"
+          },
+          {
+            "text": "22. 图元设置着色器",
+            "link": "/frontend/cesium/senior/22. 图元设置着色器"
+          },
+          {
+            "text": "23. glsl着色器文件",
+            "link": "/frontend/cesium/senior/23. glsl着色器文件"
+          },
+          {
+            "text": "24. 图元的fabric设置",
+            "link": "/frontend/cesium/senior/24. 图元的fabric设置"
+          },
+          {
+            "text": "25. tiles设置着色器（1）",
+            "link": "/frontend/cesium/senior/25. tiles设置着色器（1）"
+          },
+          {
+            "text": "26. tiles设置着色器（2）",
+            "link": "/frontend/cesium/senior/26. tiles设置着色器（2）"
+          },
+          {
+            "text": "27. 内置的后期处理",
+            "link": "/frontend/cesium/senior/27. 内置的后期处理"
+          },
+          {
+            "text": "28. 自定义后期处理",
+            "link": "/frontend/cesium/senior/28. 自定义后期处理"
+          }
+        ]
       }
     ]
   },
@@ -271,6 +389,10 @@
     "text": "杂谈",
     "collapsed": true,
     "items": [
+      {
+        "text": "AstrBot + 洛克王国插件",
+        "link": "/frontend/杂谈/AstrBot + 洛克王国插件"
+      },
       {
         "text": "cesium使用",
         "link": "/frontend/杂谈/cesium使用"
