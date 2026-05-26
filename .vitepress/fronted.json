@@ -304,6 +304,10 @@
       {
         "text": "a标签",
         "link": "/frontend/HTML/a标签"
+      },
+      {
+        "text": "defer与async",
+        "link": "/frontend/HTML/defer与async"
       }
     ]
   },
@@ -395,6 +399,10 @@
     "text": "杂谈",
     "collapsed": true,
     "items": [
+      {
+        "text": "AstrBot + 洛克王国插件",
+        "link": "/frontend/杂谈/AstrBot + 洛克王国插件"
+      },
       {
         "text": "cesium使用",
         "link": "/frontend/杂谈/cesium使用"
