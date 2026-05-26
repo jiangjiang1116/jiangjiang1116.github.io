@@ -74,7 +74,7 @@
 
 <template>
   <div class="wave-group">
-    <input required="" type="text" class="input">
+    <input type="text" class="input">
     <span class="bar"></span>
     <label class="label">
       <span class="label-char" style="--index: 0">N</span>

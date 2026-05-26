@@ -10,6 +10,16 @@
       {
         "text": "广州游记",
         "link": "/notes/广州游记"
+      },
+      {
+        "text": "藏书",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "上海交通大学生存手册",
+            "link": "/notes/藏书/上海交通大学生存手册/"
+          }
+        ]
       }
     ]
   }
