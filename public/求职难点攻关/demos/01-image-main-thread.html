@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>01 - 主线程图像处理卡顿</title>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 20px; }
+    canvas { border: 1px solid #ccc; max-width: 100%; }
+    button { margin: 8px 8px 8px 0; padding: 8px 16px; cursor: pointer; }
+    .tip { color: #666; font-size: 14px; max-width: 640px; }
+  </style>
+</head>
+<body>
+  <h1>主线程做像素运算会卡顿</h1>
+  <p class="tip">对应第 01 章：滤镜/灰度等要在像素上算，数据量大时占满主线程。处理时试着拖动下方滑块，感受是否「假死」。</p>
+  <button id="load">加载示例图</button>
+  <button id="gray">同步灰度（主线程）</button>
+  <label>拖动试卡顿：<input type="range" min="0" max="100" value="50" id="range" /></label>
+  <br /><canvas id="c" width="400" height="300"></canvas>
+  <script>
+    const canvas = document.getElementById('c');
+    const ctx = canvas.getContext('2d');
+    let imageData;
+    document.getElementById('load').onclick = () => {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+        imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      };
+      img.src =
+        'data:image/svg+xml,' +
+        encodeURIComponent(
+          '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f40"/><stop offset="100%" stop-color="#09f"/></linearGradient></defs><rect fill="url(#g)" width="400" height="300"/></svg>'
+        );
+    };
+    document.getElementById('gray').onclick = () => {
+      if (!imageData) return alert('先加载图片');
+      const d = imageData.data;
+      const t0 = performance.now();
+      for (let i = 0; i < d.length; i += 4) {
+        const g = 0.299 * d[i] + 0.587 * d[i + 1] + 0.114 * d[i + 2];
+        d[i] = d[i + 1] = d[i + 2] = g;
+      }
+      ctx.putImageData(imageData, 0, 0);
+      alert('灰度完成，耗时约 ' + (performance.now() - t0).toFixed(0) + ' ms');
+    };
+    document.getElementById('load').click();
+  </script>
+</body>
+</html>

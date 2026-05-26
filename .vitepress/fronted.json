@@ -372,6 +372,20 @@
     ]
   },
   {
+    "text": "性能优化",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "defer分帧渲染与白屏优化",
+        "link": "/frontend/性能优化/defer分帧渲染与白屏优化"
+      },
+      {
+        "text": "DNS解析与优化",
+        "link": "/frontend/性能优化/DNS解析与优化"
+      }
+    ]
+  },
+  {
     "text": "技巧",
     "collapsed": true,
     "items": [
@@ -452,6 +466,80 @@
       {
         "text": "纯前端导出word",
         "link": "/frontend/杂谈/纯前端导出word"
+      }
+    ]
+  },
+  {
+    "text": "求职难点攻关",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "01-图像处理",
+        "link": "/frontend/求职难点攻关/01-图像处理"
+      },
+      {
+        "text": "02-Webpack构建优化",
+        "link": "/frontend/求职难点攻关/02-Webpack构建优化"
+      },
+      {
+        "text": "03-TTS性能优化",
+        "link": "/frontend/求职难点攻关/03-TTS性能优化"
+      },
+      {
+        "text": "04-实时协作",
+        "link": "/frontend/求职难点攻关/04-实时协作"
+      },
+      {
+        "text": "05-网页复制成图片至剪贴板",
+        "link": "/frontend/求职难点攻关/05-网页复制成图片至剪贴板"
+      },
+      {
+        "text": "06-Vite插件",
+        "link": "/frontend/求职难点攻关/06-Vite插件"
+      },
+      {
+        "text": "07-表单数据同步与保持",
+        "link": "/frontend/求职难点攻关/07-表单数据同步与保持"
+      },
+      {
+        "text": "08-优化虚拟列表滚动",
+        "link": "/frontend/求职难点攻关/08-优化虚拟列表滚动"
+      },
+      {
+        "text": "09-微前端解决巨石应用",
+        "link": "/frontend/求职难点攻关/09-微前端解决巨石应用"
+      },
+      {
+        "text": "10-DNS解析与优化",
+        "link": "/frontend/求职难点攻关/10-DNS解析与优化"
+      },
+      {
+        "text": "11-前端监控",
+        "link": "/frontend/求职难点攻关/11-前端监控"
+      },
+      {
+        "text": "12-跨标签页通信",
+        "link": "/frontend/求职难点攻关/12-跨标签页通信"
+      },
+      {
+        "text": "13-Vite相关优化",
+        "link": "/frontend/求职难点攻关/13-Vite相关优化"
+      },
+      {
+        "text": "14-计时器节流问题",
+        "link": "/frontend/求职难点攻关/14-计时器节流问题"
+      },
+      {
+        "text": "15-多文件预览支持",
+        "link": "/frontend/求职难点攻关/15-多文件预览支持"
+      },
+      {
+        "text": "16-defer优化白屏时间",
+        "link": "/frontend/求职难点攻关/16-defer优化白屏时间"
+      },
+      {
+        "text": "README",
+        "link": "/frontend/求职难点攻关/README"
       }
     ]
   },

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>14 - 后台标签页定时器节流</title>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 24px; max-width: 720px; }
+    .tip { color: #666; font-size: 14px; line-height: 1.6; }
+    pre { background: #1a1a2e; color #7bed9f; padding: 12px; max-height: 280px; overflow: auto; font-size: 13px; }
+    button { padding: 8px 16px; margin: 8px 8px 8px 0; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>后台标签页会节流 setInterval</h1>
+  <p class="tip">
+    对应第 14 章。点击下方开始后，<strong>切换到其他标签页等 10 秒再切回来</strong>：
+    主线程的 setInterval 会变慢（Chrome 后台约 1 秒一次）；Worker 里的计时仍较准。
+  </p>
+  <button id="start">开始对比计时</button>
+  <button id="stop">停止</button>
+  <pre id="log"></pre>
+  <script>
+    let mainN = 0, workerN = 0, worker, tMain, tWorker;
+    const logEl = document.getElementById('log');
+    function log(s) {
+      logEl.textContent = s + '\n' + logEl.textContent;
+    }
+    document.getElementById('start').onclick = () => {
+      mainN = workerN = 0;
+      log('--- 开始，请切换标签页测试 ---');
+      tMain = setInterval(() => {
+        mainN++;
+        log('[主线程] tick ' + mainN + ' @ ' + new Date().toLocaleTimeString());
+      }, 1000);
+      const blob = new Blob([
+        "let n=0; setInterval(()=>{ n++; postMessage('[Worker] tick '+n+' @ '+new Date().toLocaleTimeString()); }, 1000);"
+      ]);
+      worker = new Worker(URL.createObjectURL(blob));
+      worker.onmessage = (e) => log(e.data);
+    };
+    document.getElementById('stop').onclick = () => {
+      clearInterval(tMain);
+      worker?.terminate();
+      log('--- 已停止 ---');
+    };
+  </script>
+</body>
+</html>

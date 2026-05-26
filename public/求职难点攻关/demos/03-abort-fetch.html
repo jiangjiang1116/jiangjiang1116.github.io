@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>03 - AbortController 取消请求</title>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 24px; max-width: 720px; }
+    button { margin-right: 8px; padding: 8px 16px; cursor: pointer; }
+    pre { background: #f4f4f4; padding: 12px; overflow: auto; max-height: 320px; }
+    .tip { color: #666; font-size: 14px; margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+  <h1>AbortController 取消 Fetch</h1>
+  <p class="tip">对应第 03 章 TTS/长请求：用户切换页面或重复点击时，应中止上一次未完成的请求。</p>
+  <button id="start">发起请求（较慢接口）</button>
+  <button id="abort">取消请求</button>
+  <pre id="out">点击「发起请求」…</pre>
+  <script>
+    let controller;
+    document.getElementById('start').onclick = () => {
+      controller = new AbortController();
+      document.getElementById('out').textContent = '请求中…（可点取消）';
+      fetch('https://jsonplaceholder.typicode.com/posts', { signal: controller.signal })
+        .then((r) => r.json())
+        .then((data) => {
+          document.getElementById('out').textContent =
+            '成功，共 ' + data.length + ' 条（见控制台）';
+          console.log(data.slice(0, 2));
+        })
+        .catch((e) => {
+          document.getElementById('out').textContent =
+            e.name === 'AbortError' ? '已取消（AbortError）' : '错误: ' + e.message;
+        });
+    };
+    document.getElementById('abort').onclick = () => controller?.abort();
+  </script>
+</body>
+</html>

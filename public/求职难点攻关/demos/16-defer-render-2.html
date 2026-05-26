@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ProgressiveRender2 — requestIdleCallback 分片</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        padding-top: 88px;
+        font-family: system-ui, sans-serif;
+      }
+      #stats {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        padding: 10px 14px;
+        background: #1a1a2e;
+        color: #eee;
+        font-size: 13px;
+        line-height: 1.5;
+        border-bottom: 2px solid #70a1ff;
+      }
+      #stats strong {
+        color: #7bed9f;
+      }
+      #stats a {
+        color: #70a1ff;
+      }
+      #list {
+        padding: 8px;
+      }
+      li {
+        margin: 6px;
+        padding: 10px 12px;
+        list-style: none;
+        border-radius: 4px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      }
+      li span.tag {
+        display: inline-block;
+        min-width: 80px;
+        margin-right: 8px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="stats">加载中…</div>
+    <ul id="list"></ul>
+    <script>
+      const params = new URLSearchParams(location.search);
+      const COUNT = Math.max(1, Number(params.get("count")) || 20000);
+
+      const list = document.getElementById("list");
+      const statsEl = document.getElementById("stats");
+
+      const pending = Array.from({ length: COUNT }, (_, i) => `Item ${i + 1}`);
+      const total = pending.length;
+
+      function setStats(html) {
+        statsEl.innerHTML = html;
+      }
+
+      function helpLinks() {
+        const base2 = "ProgressiveRender2.html";
+        const base1 = "ProgressiveRender1.html";
+        return (
+          `<br/>对比：<a href="${base1}?mode=sync&count=${COUNT}">文件1 同步</a> · ` +
+          `<a href="${base1}?mode=raf&count=${COUNT}">文件1 RAF</a> · ` +
+          `<a href="${base2}?count=50000">加大 count=50000</a>`
+        );
+      }
+
+      function createLi(text) {
+        const li = document.createElement("li");
+        const tag = document.createElement("span");
+        tag.className = "tag";
+        tag.textContent = text;
+        const extra = document.createElement("span");
+        extra.textContent = " · demo payload";
+        li.appendChild(tag);
+        li.appendChild(extra);
+        li.style.backgroundColor = `#${Math.floor(
+          Math.random() * 16777215
+        )
+          .toString(16)
+          .padStart(6, "0")}`;
+        li.style.borderLeft = "4px solid #70a1ff";
+        return li;
+      }
+
+      setStats(
+        `<strong>模式：requestIdleCallback</strong> · 共 ${COUNT} 条 · 浏览器空闲时分片插入` +
+          helpLinks()
+      );
+
+      const t0 = performance.now();
+      let firstPaintMs = null;
+
+      function renderIdle(deadline) {
+        while (deadline.timeRemaining() > 0 && pending.length > 0) {
+          const item = pending.shift();
+          list.appendChild(createLi(item));
+
+          if (firstPaintMs === null) {
+            firstPaintMs = performance.now() - t0;
+            console.log(`[idle] 首条可见约 ${firstPaintMs.toFixed(1)} ms`);
+          }
+        }
+
+        const done = total - pending.length;
+        if (pending.length > 0) {
+          setStats(
+            `<strong>渲染中…</strong> ${done}/${total} · 已耗时 ${(performance.now() - t0).toFixed(0)} ms · 可尝试滚动页面` +
+              helpLinks()
+          );
+          requestIdleCallback(renderIdle);
+        } else {
+          const totalMs = (performance.now() - t0).toFixed(1);
+          const firstStr =
+            firstPaintMs !== null ? firstPaintMs.toFixed(1) : "—";
+          console.log(
+            `[idle] 全部完成 ${totalMs} ms · 首条 ${firstStr} ms`
+          );
+          setStats(
+            `<strong>模式：rIC · 已完成</strong> · ${COUNT} 条 · 首条 <strong>${firstStr} ms</strong> · 总耗时 <strong>${totalMs} ms</strong>` +
+              helpLinks()
+          );
+        }
+      }
+
+      requestIdleCallback(renderIdle);
+    </script>
+  </body>
+</html>

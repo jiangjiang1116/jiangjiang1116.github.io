@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>12 - BroadcastChannel 跨标签页</title>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 24px; max-width: 640px; }
+    input { width: 100%; padding: 8px; margin: 8px 0; box-sizing: border-box; }
+    button { padding: 8px 16px; cursor: pointer; }
+    .msg { background: #f0f7ff; padding: 8px; margin: 6px 0; border-radius: 4px; font-size: 14px; }
+    .tip { color: #666; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <h1>BroadcastChannel 演示</h1>
+  <p class="tip">请<strong>复制本页 URL 再开一个标签页</strong>，在任一页输入并发送，另一页会收到消息。</p>
+  <p>本页 ID：<strong id="pid"></strong></p>
+  <input id="input" placeholder="输入消息" />
+  <button id="send">发送</button>
+  <h3>收到的消息</h3>
+  <div id="list"></div>
+  <script>
+    const id = Math.random().toString(36).slice(2, 8);
+    document.getElementById('pid').textContent = id;
+    const channel = new BroadcastChannel('qiuzhi-demo-channel');
+    const list = document.getElementById('list');
+    function addMsg(text) {
+      const d = document.createElement('div');
+      d.className = 'msg';
+      d.textContent = text;
+      list.prepend(d);
+    }
+    channel.onmessage = (e) => addMsg(e.data);
+    document.getElementById('send').onclick = () => {
+      const v = document.getElementById('input').value.trim();
+      if (!v) return;
+      const msg = new Date().toLocaleTimeString() + ' · 页 ' + id + '：' + v;
+      channel.postMessage(msg);
+      addMsg('（本页发出）' + msg);
+      document.getElementById('input').value = '';
+    };
+    window.addEventListener('beforeunload', () => channel.close());
+  </script>
+</body>
+</html>

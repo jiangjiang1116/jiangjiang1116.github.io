@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>08 - 虚拟列表原理演示</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; padding: 20px; }
+    .wrap { display: flex; gap: 24px; flex-wrap: wrap; }
+    h3 { margin: 0 0 8px; font-size: 15px; }
+    .tip { color: #666; font-size: 14px; max-width: 900px; margin-bottom: 16px; }
+    .scroll {
+      height: 320px; width: 280px; overflow: auto; border: 2px solid #333;
+      position: relative;
+    }
+    .phantom { position: relative; }
+    .item {
+      position: absolute; left: 0; right: 0; height: 40px; line-height: 40px;
+      padding: 0 12px; border-bottom: 1px solid #eee; background: #fff;
+    }
+    .bad .item { position: static; }
+    .count { font-size: 13px; color: #888; margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <h1>虚拟列表：只渲染可见区域</h1>
+  <p class="tip">对应第 08 章。左侧真实创建 1 万个 DOM（滚动会卡）；右侧只渲染视口内约十几条，滚动流畅。打开 DevTools → Elements 对比节点数量。</p>
+  <div class="wrap">
+    <div>
+      <h3>❌ 普通列表（10000 个 DOM）</h3>
+      <div class="scroll bad" id="bad"></div>
+      <div class="count" id="badCount"></div>
+    </div>
+    <div>
+      <h3>✅ 虚拟列表（约 10+ 个 DOM）</h3>
+      <div class="scroll" id="good"></div>
+      <div class="count" id="goodCount"></div>
+    </div>
+  </div>
+  <script>
+    const TOTAL = 10000;
+    const ITEM_H = 40;
+    const bad = document.getElementById('bad');
+    for (let i = 0; i < TOTAL; i++) {
+      const d = document.createElement('div');
+      d.className = 'item';
+      d.textContent = '行 ' + (i + 1);
+      bad.appendChild(d);
+    }
+    document.getElementById('badCount').textContent = 'DOM 数 ≈ ' + TOTAL;
+
+    const good = document.getElementById('good');
+    const phantom = document.createElement('div');
+    phantom.className = 'phantom';
+    phantom.style.height = TOTAL * ITEM_H + 'px';
+    good.appendChild(phantom);
+    const pool = document.createDocumentFragment();
+
+    function render() {
+      while (good.querySelectorAll('.item').length) {
+        good.querySelector('.item').remove();
+      }
+      const scrollTop = good.scrollTop;
+      const start = Math.floor(scrollTop / ITEM_H);
+      const visible = Math.ceil(good.clientHeight / ITEM_H) + 2;
+      for (let i = start; i < start + visible && i < TOTAL; i++) {
+        const d = document.createElement('div');
+        d.className = 'item';
+        d.style.top = i * ITEM_H + 'px';
+        d.textContent = '行 ' + (i + 1);
+        good.appendChild(d);
+      }
+      document.getElementById('goodCount').textContent =
+        '当前 DOM 数 ≈ ' + good.querySelectorAll('.item').length;
+    }
+    good.addEventListener('scroll', render);
+    render();
+  </script>
+</body>
+</html>

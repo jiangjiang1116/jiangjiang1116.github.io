@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ProgressiveRender1 — 同步 vs RAF 分帧</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        padding-top: 88px;
+        font-family: system-ui, sans-serif;
+      }
+      #stats {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        padding: 10px 14px;
+        background: #1a1a2e;
+        color: #eee;
+        font-size: 13px;
+        line-height: 1.5;
+        border-bottom: 2px solid #f40;
+      }
+      #stats strong {
+        color: #7bed9f;
+      }
+      #stats a {
+        color: #70a1ff;
+      }
+      #list {
+        padding: 8px;
+      }
+      li {
+        margin: 6px;
+        padding: 10px 12px;
+        list-style: none;
+        border-radius: 4px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      }
+      li span.tag {
+        display: inline-block;
+        min-width: 80px;
+        margin-right: 8px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="stats">加载中…</div>
+    <ul id="list"></ul>
+    <script>
+      const params = new URLSearchParams(location.search);
+      /** sync = 主线程一口气渲染；raf = requestAnimationFrame 分帧 */
+      const MODE = (params.get("mode") || "sync").toLowerCase();
+      const COUNT = Math.max(1, Number(params.get("count")) || 20000);
+      const BATCH = Math.max(1, Number(params.get("batch")) || 40);
+
+      const list = document.getElementById("list");
+      const statsEl = document.getElementById("stats");
+
+      const items = Array.from({ length: COUNT }, (_, i) => `Item ${i + 1}`);
+
+      function setStats(html) {
+        statsEl.innerHTML = html;
+      }
+
+      function createLi(text) {
+        const li = document.createElement("li");
+        const tag = document.createElement("span");
+        tag.className = "tag";
+        tag.textContent = text;
+        const extra = document.createElement("span");
+        extra.textContent = " · demo payload";
+        li.appendChild(tag);
+        li.appendChild(extra);
+        li.style.backgroundColor = `#${Math.floor(
+          Math.random() * 16777215
+        )
+          .toString(16)
+          .padStart(6, "0")}`;
+        li.style.borderLeft = "4px solid #f40";
+        return li;
+      }
+
+      function renderBatch(startIndex, batchSize) {
+        const end = Math.min(startIndex + batchSize, items.length);
+        for (let i = startIndex; i < end; i++) {
+          list.appendChild(createLi(items[i]));
+        }
+        return end;
+      }
+
+      function helpLinks() {
+        const base = location.pathname.split("/").pop() || "ProgressiveRender1.html";
+        return (
+          `<br/>切换：<a href="${base}?mode=sync&count=${COUNT}&batch=${BATCH}">同步 sync</a> · ` +
+          `<a href="${base}?mode=raf&count=${COUNT}&batch=${BATCH}">分帧 raf</a> · ` +
+          `<a href="ProgressiveRender2.html?count=${COUNT}">对比 rIC (文件2)</a> · ` +
+          `<a href="${base}?mode=sync&count=50000&batch=${BATCH}">加大 count=50000</a>`
+        );
+      }
+
+      if (MODE === "raf") {
+        setStats(
+          `<strong>模式：RAF 分帧</strong> · 共 ${COUNT} 条 · 每帧 ${BATCH} 条` +
+            helpLinks()
+        );
+
+        const t0 = performance.now();
+        let firstPaintLogged = false;
+
+        function renderFrame(startIndex) {
+          const next = renderBatch(startIndex, BATCH);
+
+          if (!firstPaintLogged && list.children.length > 0) {
+            firstPaintLogged = true;
+            const firstMs = (performance.now() - t0).toFixed(1);
+            console.log(`[raf] 首条可见约 ${firstMs} ms`);
+          }
+
+          if (next < items.length) {
+            requestAnimationFrame(() => renderFrame(next));
+          } else {
+            const totalMs = (performance.now() - t0).toFixed(1);
+            console.log(`[raf] 全部渲染完成 ${totalMs} ms`);
+            setStats(
+              `<strong>模式：RAF 分帧 · 已完成</strong> · ${COUNT} 条 · 总耗时 <strong>${totalMs} ms</strong> · 打开控制台查看详情` +
+                helpLinks()
+            );
+          }
+        }
+
+        requestAnimationFrame(() => renderFrame(0));
+      } else if (MODE === "sync") {
+        setStats(
+          `<strong>模式：同步阻塞</strong> · 共 ${COUNT} 条 · 一次性插入（录制 Performance 时刷新）` +
+            helpLinks()
+        );
+
+        const t0 = performance.now();
+        console.time("[sync] 主线程阻塞时长");
+
+        for (let i = 0; i < items.length; i += BATCH) {
+          renderBatch(i, BATCH);
+        }
+
+        console.timeEnd("[sync] 主线程阻塞时长");
+        const totalMs = (performance.now() - t0).toFixed(1);
+        console.log(`[sync] 全部完成 ${totalMs} ms · 此期间页面通常无法滚动`);
+
+        setStats(
+          `<strong>模式：同步阻塞 · 已完成</strong> · ${COUNT} 条 · 主线程连续执行 <strong>${totalMs} ms</strong> · 请对比 Performance 长任务` +
+            helpLinks()
+        );
+      } else {
+        setStats(`未知 mode=${MODE}，请使用 sync 或 raf` + helpLinks());
+      }
+    </script>
+  </body>
+</html>
