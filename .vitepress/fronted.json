@@ -340,6 +340,16 @@
     ]
   },
   {
+    "text": "typescript",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "基本用法",
+        "link": "/frontend/typescript/基本用法"
+      }
+    ]
+  },
+  {
     "text": "vitepress",
     "collapsed": true,
     "items": [
