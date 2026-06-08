@@ -1,3 +1,4 @@
+@import './font.css';
 @import './hidden.css';
 @import './blur.css';
 @import './home.css';
@@ -6,13 +7,12 @@
 .center-text {
   text-align: center;
   font-size: 14px;
-  font-family:  "华文中宋","Times New Roman";
+  font-family: var(--vp-font-family-base);
 }
 
 .title-text {
   text-align: center;
-  font-family: "Noto Serif SC-Local", "Noto Serif SC", "华文中宋",
-    "Times New Roman";
+  font-family: var(--vp-font-family-base);
 }
 /* 引用块 */
 .vp-doc blockquote {

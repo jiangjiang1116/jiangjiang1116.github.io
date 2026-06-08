@@ -1,0 +1,10 @@
+@import url('https://registry.npmmirror.com/lxgw-wenkai-screen-web/latest/files/style.min.css');
+
+:root {
+  --vp-font-family-base: "LXGW WenKai Screen", "LXGW WenKai", "Noto Serif SC", serif;
+}
+
+body,
+.vp-doc {
+  font-family: var(--vp-font-family-base);
+}

@@ -1,11 +1,19 @@
 import { defineConfig } from 'vitepress';
-import fronted from '../.vitepress/fronted.json' assert { type: 'json' };
-import notes from '../.vitepress/notes.json' assert { type: 'json' };
+import fronted from '../.vitepress/fronted.json' with { type: 'json' };
+import notes from '../.vitepress/notes.json' with { type: 'json' };
 import markdownItContainer from 'markdown-it-container';
 import { groupIconMdPlugin, groupIconVitePlugin,localIconLoader  } from 'vitepress-plugin-group-icons'
 
 export default defineConfig({
   base: '/',
+  srcExclude: [
+    '**/source/**',
+    '**/public/**',
+    '**/tools/**',
+    '**/scaffolds/**',
+    '**/_config*.yml',
+    '**/inspect-astrbot-server.sh',
+  ],
   head: [['link', { rel: 'icon', type: 'image/gif', href: '/images/dog.png' }]],
   title: 'Sinbad-Website',
   themeConfig: {

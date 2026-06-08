@@ -9,9 +9,9 @@
     "vitepress-plugin-group-icons": "^1.6.4"
   },
   "scripts": {
-    "docs:dev": "npm run gen-sidebar && vitepress dev",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview",
+    "docs:dev": "npm run gen-sidebar && node node_modules/vitepress/bin/vitepress.js dev",
+    "docs:build": "node node_modules/vitepress/bin/vitepress.js build",
+    "docs:preview": "node node_modules/vitepress/bin/vitepress.js preview",
     "gen-sidebar": "node scripts/gen-sidebar.mjs",
     "commit": "git-cz"
   },
