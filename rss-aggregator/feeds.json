@@ -1,0 +1,39 @@
+{
+  "schedule": "0 8,18 * * *",
+  "timezone": "Asia/Shanghai",
+  "outputDir": "../posts/draft",
+  "mode": "digest",
+  "digestTitle": "技术资讯精选",
+  "feeds": [
+    {
+      "name": "Hacker News",
+      "url": "https://hnrss.org/frontpage",
+      "category": "tech",
+      "maxItems": 5
+    },
+    {
+      "name": "MDN Blog",
+      "url": "https://developer.mozilla.org/en-US/blog/rss.xml",
+      "category": "tech",
+      "maxItems": 5
+    },
+    {
+      "name": "Vue.js Blog",
+      "url": "https://blog.vuejs.org/feed.rss",
+      "category": "frontend",
+      "maxItems": 5
+    },
+    {
+      "name": "CSS-Tricks",
+      "url": "https://css-tricks.com/feed/",
+      "category": "frontend",
+      "maxItems": 5
+    },
+    {
+      "name": "阮一峰的网络日志",
+      "url": "http://www.ruanyifeng.com/blog/atom.xml",
+      "category": "tech",
+      "maxItems": 3
+    }
+  ]
+}

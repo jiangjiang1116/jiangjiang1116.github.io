@@ -1,0 +1,19 @@
+{
+  "name": "rss-aggregator",
+  "version": "1.0.0",
+  "description": "RSS feed aggregator for VitePress blog — fetch, dedupe, and generate digest Markdown",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "aggregate": "node src/index.js --once",
+    "start": "node src/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "node-cron": "^3.0.3",
+    "rss-parser": "^3.13.0",
+    "turndown": "^7.2.0"
+  }
+}
