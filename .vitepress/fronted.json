@@ -316,6 +316,106 @@
     "collapsed": true,
     "items": [
       {
+        "text": "设计模式",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "01-开篇",
+            "collapsed": true,
+            "items": [
+              {
+                "text": "01-前端工程师的成长论",
+                "link": "/frontend/JS/设计模式/01-开篇/01-前端工程师的成长论"
+              },
+              {
+                "text": "02-设计模式的道与术",
+                "link": "/frontend/JS/设计模式/01-开篇/02-设计模式的道与术"
+              }
+            ]
+          },
+          {
+            "text": "02-创建型",
+            "collapsed": true,
+            "items": [
+              {
+                "text": "01-工厂模式-简单工厂",
+                "link": "/frontend/JS/设计模式/02-创建型/01-工厂模式-简单工厂"
+              },
+              {
+                "text": "02-工厂模式-抽象工厂",
+                "link": "/frontend/JS/设计模式/02-创建型/02-工厂模式-抽象工厂"
+              },
+              {
+                "text": "03-单例模式-Vuex的数据管理哲学",
+                "link": "/frontend/JS/设计模式/02-创建型/03-单例模式-Vuex的数据管理哲学"
+              },
+              {
+                "text": "04-单例模式-面试真题",
+                "link": "/frontend/JS/设计模式/02-创建型/04-单例模式-面试真题"
+              },
+              {
+                "text": "05-原型模式",
+                "link": "/frontend/JS/设计模式/02-创建型/05-原型模式"
+              }
+            ]
+          },
+          {
+            "text": "03-结构型",
+            "collapsed": true,
+            "items": [
+              {
+                "text": "01-装饰器模式",
+                "link": "/frontend/JS/设计模式/03-结构型/01-装饰器模式"
+              },
+              {
+                "text": "02-装饰器模式-原理与案例",
+                "link": "/frontend/JS/设计模式/03-结构型/02-装饰器模式-原理与案例"
+              },
+              {
+                "text": "03-适配器模式",
+                "link": "/frontend/JS/设计模式/03-结构型/03-适配器模式"
+              },
+              {
+                "text": "04-代理模式",
+                "link": "/frontend/JS/设计模式/03-结构型/04-代理模式"
+              },
+              {
+                "text": "05-代理模式-应用实践",
+                "link": "/frontend/JS/设计模式/03-结构型/05-代理模式-应用实践"
+              }
+            ]
+          },
+          {
+            "text": "04-行为型",
+            "collapsed": true,
+            "items": [
+              {
+                "text": "01-观察者模式",
+                "link": "/frontend/JS/设计模式/04-行为型/01-观察者模式"
+              },
+              {
+                "text": "02-观察者模式-面试真题",
+                "link": "/frontend/JS/设计模式/04-行为型/02-观察者模式-面试真题"
+              },
+              {
+                "text": "03-迭代器模式",
+                "link": "/frontend/JS/设计模式/04-行为型/03-迭代器模式"
+              }
+            ]
+          },
+          {
+            "text": "05-总结",
+            "collapsed": true,
+            "items": [
+              {
+                "text": "01-前方的路",
+                "link": "/frontend/JS/设计模式/05-总结/01-前方的路"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "text": "ES6",
         "link": "/frontend/JS/ES6"
       }
